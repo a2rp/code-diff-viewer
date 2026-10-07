@@ -1,3 +1,78 @@
 .appShell {
     min-height: 100vh;
+    background:
+        radial-gradient(circle at 90% 12%, rgb(72 201 151 / 7%), transparent 27%),
+        var(--paper);
+    color: var(--ink);
+
+    .mainContent {
+        width: min(1220px, calc(100% - 40px));
+        min-height: calc(100vh - 190px);
+        margin: 0 auto;
+        padding: 102px 0 55px;
+
+        > section {
+            scroll-margin-top: 82px;
+        }
+    }
+
+    .introduction {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 22px;
+
+        h1 {
+            color: #272e37;
+            font-size: clamp(32px, 5vw, 46px);
+            font-weight: 730;
+            letter-spacing: -0.06em;
+            line-height: 1.02;
+        }
+
+        h1 span {
+            color: #64736b;
+            font-weight: 500;
+        }
+
+        p {
+            margin-top: 9px;
+            color: var(--muted);
+            font-size: 12px;
+        }
+    }
+
+    .inputLimit {
+        flex: 0 0 auto;
+        margin-bottom: 3px;
+        border: 1px solid #d8dfe3;
+        border-radius: 5px;
+        background: #fafbfc;
+        padding: 5px 8px;
+        color: #798490;
+        font-size: 9px;
+        font-weight: 650;
+    }
+
+    .localNote {
+        padding-top: 12px;
+        color: #858f98;
+        font-size: 9px;
+        text-align: right;
+    }
+
+    @media (max-width: 700px) {
+        .mainContent {
+            width: calc(100% - 24px);
+            padding-top: 87px;
+            padding-bottom: 38px;
+        }
+
+        .introduction {
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 11px;
+        }
+    }
 }
