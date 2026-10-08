@@ -30,23 +30,52 @@ const SiteHeader = () => {
     return (
         <header className={styles.siteHeader} ref={headerRef}>
             <div className={styles.headerInner}>
-                <a className={styles.brand} href="#top"><span><LuGitCompareArrows aria-hidden="true" /></span>Diffroom</a>
-                <nav className={`${styles.navigation} ${menuOpen ? styles.navigationOpen : ""}`} id="main-navigation" aria-label="Main navigation">
-                    {navItems.map((item) => <a href={item.href} key={item.href} onClick={() => setMenuOpen(false)}>{item.label}</a>)}
+                <a className={styles.brand} href="#top">
+                    <span>
+                        <LuGitCompareArrows aria-hidden="true" />
+                    </span>
+                    Diffroom
+                </a>
+                <nav
+                    className={`${styles.navigation} ${menuOpen ? styles.navigationOpen : ""}`}
+                    id="main-navigation"
+                    aria-label="Main navigation"
+                >
+                    {navItems.map((item) => (
+                        <a
+                            href={item.href}
+                            key={item.href}
+                            onClick={() => setMenuOpen(false)}
+                        >
+                            {item.label}
+                        </a>
+                    ))}
                 </nav>
                 <div className={styles.actions}>
-                    <a className={styles.repositoryLink} href="https://github.com/a2rp/code-diff-viewer" target="_blank" rel="noreferrer">
-                        <FaGithub aria-hidden="true" /><span>Repository</span>
+                    <a
+                        className={styles.repositoryLink}
+                        href="https://github.com/a2rp/code-diff-viewer"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <FaGithub aria-hidden="true" />
+                        <span>Repository</span>
                     </a>
                     <button
                         className={styles.menuButton}
                         type="button"
-                        aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+                        aria-label={
+                            menuOpen ? "Close navigation" : "Open navigation"
+                        }
                         aria-expanded={menuOpen}
                         aria-controls="main-navigation"
                         onClick={() => setMenuOpen((open) => !open)}
                     >
-                        {menuOpen ? <LuX aria-hidden="true" /> : <LuMenu aria-hidden="true" />}
+                        {menuOpen ? (
+                            <LuX aria-hidden="true" />
+                        ) : (
+                            <LuMenu aria-hidden="true" />
+                        )}
                     </button>
                 </div>
             </div>

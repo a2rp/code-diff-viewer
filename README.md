@@ -18,7 +18,7 @@ Diffroom compares two versions of text or code and shows which lines were added,
 
 ## How the comparison works
 
-Paste or type the earlier version on the left and the later version on the right. The comparison updates as either panel changes. Green lines were added to the updated version, red lines were removed, and plain rows are shared lines. Enable **Ignore whitespace** when indentation or spacing changes should not count as a line change. Use **Copy diff** to place the visible comparison in the clipboard.
+Paste or type the earlier version on the left and the later version on the right. The comparison updates as either panel changes. Green lines were added to the updated version, red lines were removed, and plain rows are shared lines. A final newline is treated as a line ending, not as an extra blank line; blank lines within the text remain part of the comparison. Enable **Ignore whitespace** when indentation or spacing changes should not count as a line change. Use **Copy diff** to place the visible comparison in the clipboard.
 
 The line-based comparison uses a longest common subsequence pass. Each version is limited to 40,000 characters and 500 lines so large inputs remain bounded. The tool compares lines only. It does not produce a Git patch with file metadata, syntax highlighting, or word-level character changes.
 

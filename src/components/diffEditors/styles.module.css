@@ -103,7 +103,9 @@
         color: #687583;
         font-size: 9px;
         font-weight: 650;
-        transition: border-color 140ms ease, box-shadow 140ms ease;
+        transition:
+            border-color 140ms ease,
+            box-shadow 140ms ease;
 
         svg {
             width: 13px;

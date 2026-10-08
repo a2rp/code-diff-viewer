@@ -17,9 +17,18 @@ const App = () => {
     const [copyMessage, setCopyMessage] = useState("");
     const comparison = useMemo(() => {
         try {
-            return { ...buildLineDiff(leftText, rightText, ignoreWhitespace), error: "" };
+            return {
+                ...buildLineDiff(leftText, rightText, ignoreWhitespace),
+                error: "",
+            };
         } catch (error) {
-            return { rows: [], additions: 0, removals: 0, unchanged: 0, error: error.message };
+            return {
+                rows: [],
+                additions: 0,
+                removals: 0,
+                unchanged: 0,
+                error: error.message,
+            };
         }
     }, [leftText, rightText, ignoreWhitespace]);
 
@@ -30,7 +39,9 @@ const App = () => {
 
     const copyDiff = async () => {
         try {
-            await navigator.clipboard.writeText(formatDiffText(comparison.rows));
+            await navigator.clipboard.writeText(
+                formatDiffText(comparison.rows),
+            );
             setCopyMessage("Diff copied");
         } catch {
             setCopyMessage("Clipboard unavailable");
@@ -43,8 +54,20 @@ const App = () => {
             <SiteHeader />
             <main className={styles.mainContent}>
                 <section className={styles.introduction}>
-                    <div><h1>See what changed.<br /><span>Line by line.</span></h1><p>Compare two versions of text or code, then copy a readable change summary.</p></div>
-                    <span className={styles.inputLimit}>Up to 500 lines per version</span>
+                    <div>
+                        <h1>
+                            See what changed.
+                            <br />
+                            <span>Line by line.</span>
+                        </h1>
+                        <p>
+                            Compare two versions of text or code, then copy a
+                            readable change summary.
+                        </p>
+                    </div>
+                    <span className={styles.inputLimit}>
+                        Up to 500 lines per version
+                    </span>
                 </section>
                 <DiffEditors
                     leftText={leftText}
@@ -62,7 +85,10 @@ const App = () => {
                     onCopy={copyDiff}
                     error={comparison.error}
                 />
-                <p className={styles.localNote}>Your text stays in this browser. Nothing is uploaded or saved.</p>
+                <p className={styles.localNote}>
+                    Your text stays in this browser. Nothing is uploaded or
+                    saved.
+                </p>
             </main>
             <SiteFooter />
             <BackToTop />
